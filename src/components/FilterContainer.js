@@ -18,10 +18,10 @@ const FilterContainer=()=>{
     
     // variable for the selected neighborhood to search for
     const neighborSearch = state.selectedNeighborhood;
-    console.log("Currently Selected Neighborhood: ", neighborSearch);
+    // console.log("Currently Selected Neighborhood: ", neighborSearch);
 
     const populateNeighborhoods=()=>{
-        console.log("hit populate neighborhoods list")
+        // console.log("hit populate neighborhoods list")
         let neighborArr = [];
         
         neighborData.forEach((borough)=>{
@@ -44,13 +44,13 @@ const FilterContainer=()=>{
 
     const handleNeighborSubmit=(event)=>{
         event.preventDefault();
-        console.log("changing filter");
+        console.log("dispatching: ", neighborSelect);
         return dispatch({type: "UPDATE_SELECTED_NEIGHBORHOOD", payload: neighborSelect });
     };
 
     const handleNeighborOnChange=(event)=>{
         event.preventDefault();
-        console.log("handle onChange", event.target.value);
+        // console.log("handle onChange", event.target.value);
         return setNeighborSelect(event.target.value);
     };
 
@@ -59,6 +59,7 @@ const FilterContainer=()=>{
             <form onSubmit={handleNeighborSubmit}>
                 <label >Neighborhood</label>
                 <select id="neighborhood" name="neighborhood" onChange={handleNeighborOnChange} >
+                    <option key="none" value={""}> Select a Neighborhood </option>
                     {createNeighborhoodOptions()}
 
                 </select>

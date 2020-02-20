@@ -10,23 +10,28 @@ import FilterContainer from './FilterContainer';
 const MainWindow=()=>{
     const [state, dispatch] = useContext(Context);
     const zipcodeData = state.zipcodeKey;
+    const allData = state.allDemoData;
     const data = [];
     const currentNeighborhoodFilter = state.selectedNeighborhood;
 
     useEffect(()=>{
-        if(currentNeighborhoodFilter){
-            findNeighborhood(currentNeighborhoodFilter);
-        }
+        // when Current Neighborhood changes in global state, display the filtered data
+        console.log("hit useEffect")
+        
+        handleFilterChange();
+        
     },[])
 
     const findNeighborhood=(searchForNeighbor)=>{
-        console.log("hit findNeighborhood")
+        // returns an array of zipcodes for the selected neighborhood
+        // console.log("hit findNeighborhood")
         let zipcodesArr = [];
 
         zipcodeData.forEach((borough)=>{
             // console.log(borough.neighborhoods);
             return borough.neighborhoods.forEach((neighborhood)=>{
                 if(neighborhood.name === searchForNeighbor){
+                    console.log("found zips for: ", neighborhood.name)
                     console.log("found neighborhood array", neighborhood.zipcode)
                     zipcodesArr = neighborhood.zipcode;
                 }
@@ -38,8 +43,15 @@ const MainWindow=()=>{
         return zipcodesArr;
     }
   
-  
-    console.log("zipcode data findNeighborhood: ", findNeighborhood("Central Bronx"));
+
+    const handleFilterChange=()=>{
+        console.log("hit handle filter change")
+        let filterZipArr = [];
+        filterZipArr = findNeighborhood(currentNeighborhoodFilter);
+        return console.log("filterZipArr", filterZipArr)
+        // data = allData.filter()
+
+    };
 
     return(
         <section>

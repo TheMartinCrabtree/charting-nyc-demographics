@@ -1,6 +1,7 @@
 // update for typescript
 
 const FilterReducer=(state, action)=>{
+    console.log("action", action)
     switch(action.type){
         case 'UPDATE_NEIGHBORHOOD':
             return{
