@@ -11,16 +11,10 @@ const MainWindow=()=>{
     const [state, dispatch] = useContext(Context);
     const zipcodeData = state.zipcodeKey;
     const allData = state.allDemoData;
-    const data = [];
+    let data = [];
     const currentNeighborhoodFilter = state.selectedNeighborhood;
 
-    useEffect(()=>{
-        // when Current Neighborhood changes in global state, display the filtered data
-        console.log("hit useEffect")
-        
-        handleFilterChange();
-        
-    },[])
+    
 
     const findNeighborhood=(searchForNeighbor)=>{
         // returns an array of zipcodes for the selected neighborhood
@@ -33,11 +27,11 @@ const MainWindow=()=>{
                 if(neighborhood.name === searchForNeighbor){
                     console.log("found zips for: ", neighborhood.name)
                     console.log("found neighborhood array", neighborhood.zipcode)
-                    zipcodesArr = neighborhood.zipcode;
+                    return zipcodesArr = neighborhood.zipcode;
                 }
-                else{
-                    zipcodesArr = [];
-                }
+                // else{
+                //     return zipcodesArr = [];
+                // }
             })
         })
         return zipcodesArr;
@@ -47,16 +41,25 @@ const MainWindow=()=>{
     const handleFilterChange=()=>{
         console.log("hit handle filter change")
         let filterZipArr = [];
+        data =[];
         filterZipArr = findNeighborhood(currentNeighborhoodFilter);
-        return console.log("filterZipArr", filterZipArr)
-        // data = allData.filter()
+        console.log("filterZipArr", filterZipArr)
+        filterZipArr.forEach((zipcode)=>{
+            return data.push(allData.filter((dataRow)=>{
+                
+                return parseInt(dataRow.jurisdiction_name) === zipcode;
+            })[0])
+        })
+        
+        console.log("end data value: ", data)
+        return data;
 
     };
 
     return(
         <section>
             <h4>Main Window</h4>
-            <LineChart width={400} height={400} data={data}>
+            <LineChart width={400} height={400} data={ handleFilterChange() }>
                 <Line type="monotone" dataKey="count_female" stroke="#000000" />
                 <CartesianGrid />
                 <XAxis />
