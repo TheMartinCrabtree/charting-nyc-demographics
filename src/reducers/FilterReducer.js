@@ -7,6 +7,11 @@ const FilterReducer=(state, action)=>{
                 ...state,
                 neighborhood: action.payload
             };
+        case 'UPDATE_SELECTED_NEIGHBORHOOD':
+            return{
+                ...state,
+                selectedNeighborhood: action.payload
+            };
         default:
             return state;
     };

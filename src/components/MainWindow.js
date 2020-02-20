@@ -1,24 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {Context} from '../Store';
 import {LineChart, Line, YAxis, CartesianGrid, XAxis} from 'recharts';
+import FilterContainer from './FilterContainer';
 
 
-// https://www.health.ny.gov/statistics/cancer/registry/appendix/neighborhoods.htm
+// for Neighborhoods/Zipcodes https://www.health.ny.gov/statistics/cancer/registry/appendix/neighborhoods.htm
 
-import data from '../data';
-import zipcodeKey from '../zipcodes';
 
 
 const MainWindow=()=>{
-    const [zipcodeData, setZipcodeData] = useState(zipcodeKey);
+    const [state, dispatch] = useContext(Context);
+    const zipcodeData = state.zipcodeKey;
+    const data = state.allDemoData;
+    
 
-    // zipcodeData[0].neighborhoods["Central Bronx"]
 
-    const findNeighborhood=(searchForNeighbor: string)=>{
+    const findNeighborhood=(searchForNeighbor)=>{
         console.log("hit findNeighborhood")
-        let zipcodesArr: Array<number> = [];
+        let zipcodesArr = [];
 
         zipcodeData.forEach((borough)=>{
-            console.log(borough.neighborhoods);
+            // console.log(borough.neighborhoods);
             return borough.neighborhoods.forEach((neighborhood)=>{
                 if(neighborhood.name === searchForNeighbor){
                     console.log("found neighborhood array", neighborhood.zipcode)
@@ -44,6 +46,8 @@ const MainWindow=()=>{
                 <XAxis />
                 <YAxis />
             </LineChart>
+
+            <FilterContainer />
         </section>
     );
 }

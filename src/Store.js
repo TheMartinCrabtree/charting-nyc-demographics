@@ -1,9 +1,14 @@
 import React, { createContext, useReducer } from 'react';
 import FilterReducer from './reducers/FilterReducer';
 
+import data from './data';
+import zipcodeKey from './zipcodes';
 
 const initialState = {
-    neighborhood: ""
+    neighborhood: "",
+    allDemoData: data,
+    zipcodeKey: zipcodeKey,
+    selectedNeighborhood: ""
 }
 
 const Store=({ children })=>{
