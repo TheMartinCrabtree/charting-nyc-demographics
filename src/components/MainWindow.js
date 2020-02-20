@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {Context} from '../Store';
 import {LineChart, Line, YAxis, CartesianGrid, XAxis} from 'recharts';
 import FilterContainer from './FilterContainer';
@@ -7,13 +7,17 @@ import FilterContainer from './FilterContainer';
 // for Neighborhoods/Zipcodes https://www.health.ny.gov/statistics/cancer/registry/appendix/neighborhoods.htm
 
 
-
 const MainWindow=()=>{
     const [state, dispatch] = useContext(Context);
     const zipcodeData = state.zipcodeKey;
-    const data = state.allDemoData;
-    
+    const data = [];
+    const currentNeighborhoodFilter = state.selectedNeighborhood;
 
+    useEffect(()=>{
+        if(currentNeighborhoodFilter){
+            findNeighborhood(currentNeighborhoodFilter);
+        }
+    },[])
 
     const findNeighborhood=(searchForNeighbor)=>{
         console.log("hit findNeighborhood")
