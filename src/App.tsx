@@ -5,11 +5,13 @@ import './App.css';
 // https://www.health.ny.gov/statistics/cancer/registry/appendix/neighborhoods.htm
 
 import data from './data';
+import zipcodeData from './zipcodes';
 
 
 function App() {
   
   console.log("what is data: ", data)
+  console.log("zipcode data", zipcodeData)
 
   return (
     <main>
