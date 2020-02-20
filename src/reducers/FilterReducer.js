@@ -1,6 +1,6 @@
 // change the any type
 
-const FilterReducer=(state: Object, action: any)=>{
+const FilterReducer=(state, action)=>{
     switch(action.type){
         case 'UPDATE_NEIGHBORHOOD':
             return{
