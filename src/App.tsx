@@ -9,7 +9,7 @@ function App() {
 
   return (
     <main>
-      <header><h3>Charting NYC Demographic Data</h3></header>
+      <header><h3>Recharts Demo: Charting NYC Demographic Data</h3></header>
         <Store>
           <MainWindow />  
         </Store>
