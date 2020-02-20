@@ -11,18 +11,29 @@ import zipcodeKey from '../zipcodes';
 const MainWindow=()=>{
     const [zipcodeData, setZipcodeData] = useState(zipcodeKey);
 
-    
     // zipcodeData[0].neighborhoods["Central Bronx"]
 
-    const findNeighborhood=()=>{
+    const findNeighborhood=(searchForNeighbor: string)=>{
         console.log("hit findNeighborhood")
-        return zipcodeData.forEach((borough)=>{
-        console.log(borough.neighborhoods);
+        let zipcodesArr: Array<number> = [];
+
+        zipcodeData.forEach((borough)=>{
+            console.log(borough.neighborhoods);
+            return borough.neighborhoods.forEach((neighborhood)=>{
+                if(neighborhood.name === searchForNeighbor){
+                    console.log("found neighborhood array", neighborhood.zipcode)
+                    zipcodesArr = neighborhood.zipcode;
+                }
+                else{
+                    zipcodesArr = [];
+                }
+            })
         })
+        return zipcodesArr;
     }
   
   
-    console.log("zipcode data findNeighborhood: ", findNeighborhood());
+    console.log("zipcode data findNeighborhood: ", findNeighborhood("Central Bronx"));
 
     return(
         <section>
