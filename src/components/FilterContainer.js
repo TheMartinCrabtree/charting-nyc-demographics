@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {Context} from '../Store';
+import '../App.css';
 
 const FilterContainer=()=>{
     const [state, dispatch] = useContext(Context);
@@ -55,7 +56,7 @@ const FilterContainer=()=>{
     };
 
     return(
-        <div>
+        <div className="App-div">
             <form onSubmit={handleNeighborSubmit}>
                 <label >Neighborhood</label>
                 <select id="neighborhood" name="neighborhood" onChange={handleNeighborOnChange} >

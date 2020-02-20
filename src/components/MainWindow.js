@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import {Context} from '../Store';
 import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis} from 'recharts';
 import FilterContainer from './FilterContainer';
+import '../App.css';
 
 
 // for Neighborhoods/Zipcodes https://www.health.ny.gov/statistics/cancer/registry/appendix/neighborhoods.htm
@@ -69,7 +70,7 @@ const MainWindow=()=>{
     const renderGraph=()=>{
         if(changeGraph){
             return(
-                <LineChart width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }} >
+                <LineChart className="Graph" width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }} >
                     <Line type="monotone" dataKey="count_female" stroke="#000000" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis dataKey="jurisdiction_name" />
@@ -80,19 +81,19 @@ const MainWindow=()=>{
         }
         else if(!changeGraph){
             return(
-                <BarChart width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                <BarChart className="Graph" width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Bar type="monotone" dataKey="count_female" barSize={30} fill="#8884d8" label={renderCustomBarLabel} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  />
                     <XAxis dataKey="jurisdiction_name" />
-                    <YAxis type="number" domain={[0,50]} />
+                    <YAxis type="number" domain={[0,50]}  />
                 </BarChart>
             );
         }
     }
 
     return(
-        <section>
-            
+        <section className="App-section">
+            <h4> Female Respondents by Zip Code </h4>
             { renderGraph() }
             
             <FilterContainer />
