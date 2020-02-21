@@ -2,7 +2,8 @@ import React, {useContext, useState, useEffect} from 'react';
 import {Context} from '../Store';
 import '../App.css';
 
-const FilterContainer=()=>{
+
+const FilterContainer=(props)=>{
     const [state, dispatch] = useContext(Context);
     const neighborData = state.zipcodeKey;
     
@@ -58,7 +59,7 @@ const FilterContainer=()=>{
     return(
         <div className="App-div">
             <form onSubmit={handleNeighborSubmit}>
-                <label >Neighborhood</label>
+                <label >Neighborhood:  </label>
                 <select id="neighborhood" name="neighborhood" onChange={handleNeighborOnChange} >
                     <option key="none" value={""}> Select a Neighborhood </option>
                     {createNeighborhoodOptions()}
@@ -66,6 +67,8 @@ const FilterContainer=()=>{
                 </select>
                 <input type="submit" />
             </form>
+            {props.children}
+            
         </div>
     )
 };

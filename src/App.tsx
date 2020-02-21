@@ -9,10 +9,10 @@ function App() {
 
   return (
     <main className="App-main">
-      <header><h3>Recharts Demo: Charting NYC Demographic Data</h3></header>
-        <Store>
-          <MainWindow />  
-        </Store>
+      
+      <Store>
+        <MainWindow />  
+      </Store>
 
     </main>
   );

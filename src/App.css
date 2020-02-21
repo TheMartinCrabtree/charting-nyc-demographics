@@ -1,22 +1,17 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 20px;
+}
+.grid-item {
+  padding: 1px;
+  text-align: center;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -24,26 +19,30 @@
 }
 
 .App-main {
-  background-color: #facef8;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(8, 25, 216,0.5);
+  min-height: 80vh;
+  max-width: 75vw;
   padding: calc(10px + 3vin);
   border: #282c34;
   border-radius: 10px;
-  
 }
 
 .App-section{
-  padding: 30px;
+  padding: 5px;
 }
 
 .App-div{
-  padding: 20px;
+  padding: 5px;
   border: #282c34;
+  background-color: dimgray;
   border-width: 2px;
+  border-radius: 10px;
 }
 
 .Graph {
-  background-color: #d8d8d8;
   border: #282c34;
   border-width: 4px;
 }
+
