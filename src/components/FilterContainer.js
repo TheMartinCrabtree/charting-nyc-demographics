@@ -65,7 +65,7 @@ const FilterContainer=(props)=>{
                     {createNeighborhoodOptions()}
 
                 </select>
-                <input type="submit" />
+                <input className="button" type="submit" />
             </form>
             {props.children}
             

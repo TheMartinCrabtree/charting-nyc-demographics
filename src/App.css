@@ -42,7 +42,27 @@
 }
 
 .Graph {
-  border: #282c34;
-  border-width: 4px;
+  border: 1px solid #282c34;
+  border-width: 1px;
+  background-color: rgba(185, 184, 184, 0.5);
 }
 
+
+.button {
+  background-color: rgb(75, 57, 153);
+  border: 1px solid rgb(64, 47, 136);
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover{
+  background-color: rgb(104, 80, 212);
+}

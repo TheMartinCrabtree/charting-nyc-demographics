@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Context} from '../Store';
-import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis} from 'recharts';
+import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis, Label} from 'recharts';
 import FilterContainer from './FilterContainer';
 import '../App.css';
 
@@ -70,10 +70,17 @@ const MainWindow=()=>{
     const renderGraph=()=>{
         if(changeGraph){
             return(
-                <LineChart width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }} >
+                <LineChart 
+                    width={400} 
+                    height={350} 
+                    data={ handleFilterChange() }  
+                    margin={{ top: 20, right: 10, bottom: 10, left: 10 }} 
+                >
                     <Line type="monotone" dataKey="count_female" stroke="#000000" />
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <XAxis dataKey="jurisdiction_name" />
+                    <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
+                    <XAxis dataKey="jurisdiction_name" >
+                        <Label value="Zip Code" position="bottom" offset={0} />
+                    </XAxis>
                     <YAxis type="number" domain={[0,50]} />
                 </LineChart>
 
@@ -81,10 +88,17 @@ const MainWindow=()=>{
         }
         else if(!changeGraph){
             return(
-                <BarChart width={400} height={400} data={ handleFilterChange() }  margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                    <Bar type="monotone" dataKey="count_female" barSize={30} fill="#8884d8" label={renderCustomBarLabel} />
+                <BarChart 
+                    width={400} 
+                    height={350} 
+                    data={ handleFilterChange() }  
+                    margin={{ top: 20, right: 10, bottom: 10, left: 10 }}
+                >
+                    <Bar type="monotone" dataKey="count_female" barSize={30} fill="rgba(8, 25, 216,0.5)" label={renderCustomBarLabel} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  />
-                    <XAxis dataKey="jurisdiction_name" />
+                    <XAxis dataKey="jurisdiction_name" >
+                        <Label value="Zip Code" position="bottom" offset={0} />
+                    </XAxis>
                     <YAxis type="number" domain={[0,50]}  />
                 </BarChart>
             );
@@ -104,7 +118,7 @@ const MainWindow=()=>{
                 </div>
                 <div className="grid-item">
                     <FilterContainer>
-                        <button onClick={ handleChangeGraph }> Change Graph </button>
+                        <button className="button" onClick={ handleChangeGraph }> Change Graph </button>
                     </FilterContainer>
                 </div>
             </div>
