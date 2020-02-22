@@ -23,11 +23,12 @@
   justify-content: center;
   background-color: rgba(8, 25, 216,0.5);
   min-height: 80vh;
-  max-width: 75vw;
+  max-width: 40vw;
   padding: calc(10px + 3vin);
   border: #282c34;
   border-radius: 10px;
   background-image: url("/images/manhattan-night.png");
+  margin: 5vw;
 }
 
 .App-section{
