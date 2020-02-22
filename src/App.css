@@ -27,6 +27,7 @@
   padding: calc(10px + 3vin);
   border: #282c34;
   border-radius: 10px;
+  background-image: url("/images/manhattan-night.png");
 }
 
 .App-section{
@@ -44,7 +45,8 @@
 .Graph {
   border: 1px solid #282c34;
   border-width: 1px;
-  background-color: rgba(185, 184, 184, 0.5);
+  background-color: rgba(185, 184, 184, 0.85);
+  padding: 10px;
 }
 
 
@@ -65,4 +67,8 @@
 
 .button:hover{
   background-color: rgb(104, 80, 212);
+}
+
+.heading-text{
+  color:#FFFFFF;
 }

@@ -74,7 +74,7 @@ const MainWindow=()=>{
                     width={400} 
                     height={350} 
                     data={ handleFilterChange() }  
-                    margin={{ top: 20, right: 10, bottom: 10, left: 10 }} 
+                    margin={{ top: 20, right: 10, bottom: 20, left: 10 }} 
                 >
                     <Line type="monotone" dataKey="count_female" stroke="#000000" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
@@ -94,7 +94,7 @@ const MainWindow=()=>{
                     data={ handleFilterChange() }  
                     margin={{ top: 20, right: 10, bottom: 10, left: 10 }}
                 >
-                    <Bar type="monotone" dataKey="count_female" barSize={30} fill="rgba(8, 25, 216,0.5)" label={renderCustomBarLabel} />
+                    <Bar type="monotone" dataKey="count_female" barSize={30} fill="rgba(8, 25, 216,0.80)" label={renderCustomBarLabel} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  />
                     <XAxis dataKey="jurisdiction_name" >
                         <Label value="Zip Code" position="bottom" offset={0} />
@@ -110,8 +110,8 @@ const MainWindow=()=>{
             <div className="grid-container">
                 <div className="grid-item"></div>
                 <div className="grid-item">
-                    <h3>Recharts Demo: Charting NYC Demographic Data</h3>
-                    <h4> Female Respondents by Zip Code </h4>
+                    <h3 className="heading-text">Recharts Demo: Charting NYC Demographic Data</h3>
+                    <h4 className="heading-text"> Female Respondents by Zip Code </h4>
                     <div className="Graph">
                         { renderGraph() }
                     </div>
