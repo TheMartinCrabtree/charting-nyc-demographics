@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Context} from '../Store';
-import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis, Label} from 'recharts';
+import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis, Label, ResponsiveContainer} from 'recharts';
 import FilterContainer from './FilterContainer';
 import '../App.css';
 
@@ -77,13 +77,12 @@ const MainWindow=()=>{
                     margin={{ top: 20, right: 10, bottom: 20, left: 10 }} 
                 >
                     <Line type="monotone" dataKey="count_female" stroke="#000000" />
-                    <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
-                    <XAxis dataKey="jurisdiction_name" >
+                    <CartesianGrid stroke="#000000" strokeDasharray="3 3" />
+                    <XAxis dataKey="jurisdiction_name" tick={{fill: "#282c34"}}  tickLine={{stroke: "#000000"}} >
                         <Label value="Zip Code" position="bottom" offset={0} />
                     </XAxis>
                     <YAxis type="number" domain={[0,50]} />
                 </LineChart>
-
             );
         }
         else if(!changeGraph){
@@ -92,7 +91,7 @@ const MainWindow=()=>{
                     width={400} 
                     height={350} 
                     data={ handleFilterChange() }  
-                    margin={{ top: 20, right: 10, bottom: 10, left: 10 }}
+                    margin={{ top: 20, right: 10, bottom: 20, left: 10 }}
                 >
                     <Bar type="monotone" dataKey="count_female" barSize={30} fill="rgba(8, 25, 216,0.80)" label={renderCustomBarLabel} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"  />
