@@ -1,6 +1,10 @@
-import React, {useState, useContext, useEffect} from 'react';
+
+import React, {useState, useContext} from 'react';
 import {Context} from '../Store';
-import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis, Label, ResponsiveContainer} from 'recharts';
+
+import {LineChart, BarChart, Bar, Line, YAxis, CartesianGrid, XAxis, Label} from 'recharts';
+
+
 import FilterContainer from './FilterContainer';
 import '../App.css';
 
@@ -70,6 +74,7 @@ const MainWindow=()=>{
     const renderGraph=()=>{
         if(changeGraph){
             return(
+
                 <LineChart 
                     width={400} 
                     height={350} 
@@ -77,12 +82,14 @@ const MainWindow=()=>{
                     margin={{ top: 20, right: 10, bottom: 20, left: 10 }} 
                 >
                     <Line type="monotone" dataKey="count_female" stroke="#000000" />
+                    <Line type="monotone" dataKey="count_male" stroke="#61dafb" />
                     <CartesianGrid stroke="#000000" strokeDasharray="3 3" />
                     <XAxis dataKey="jurisdiction_name" tick={{fill: "#282c34"}}  tickLine={{stroke: "#000000"}} >
                         <Label value="Zip Code" position="bottom" offset={0} />
                     </XAxis>
-                    <YAxis type="number" domain={[0,50]} />
+                    <YAxis type="number" domain={[0,75]} />
                 </LineChart>
+
             );
         }
         else if(!changeGraph){
@@ -98,7 +105,7 @@ const MainWindow=()=>{
                     <XAxis dataKey="jurisdiction_name" >
                         <Label value="Zip Code" position="bottom" offset={0} />
                     </XAxis>
-                    <YAxis type="number" domain={[0,50]}  />
+                    <YAxis type="number" domain={[0,75]}  />
                 </BarChart>
             );
         }
@@ -110,9 +117,9 @@ const MainWindow=()=>{
                 <div className="grid-item"></div>
                 <div className="grid-item">
                     <h3 className="heading-text">Recharts Demo: Charting NYC Demographic Data</h3>
-                    <h4 className="heading-text"> Female Respondents by Zip Code </h4>
+                    <h4 className="heading-text"> Male (blue) and Female (black) Respondents by Zip Code </h4>
                     <div className="Graph">
-                        { renderGraph() }
+                       { renderGraph() }
                     </div>
                 </div>
                 <div className="grid-item">
@@ -129,3 +136,4 @@ const MainWindow=()=>{
 }
 
 export default MainWindow;
+
