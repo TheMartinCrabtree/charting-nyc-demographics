@@ -15,13 +15,8 @@ const FilterContainer=(props)=>{
 
     useEffect(()=>{
         setNeighborhoods(populateNeighborhoods)
-    }, [])
+    }, [neighborhoods])
     
-    
-    // variable for the selected neighborhood to search for
-    const neighborSearch = state.selectedNeighborhood;
-    // console.log("Currently Selected Neighborhood: ", neighborSearch);
-
     const populateNeighborhoods=()=>{
         // console.log("hit populate neighborhoods list")
         let neighborArr = [];
