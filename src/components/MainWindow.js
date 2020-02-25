@@ -13,7 +13,7 @@ import '../App.css';
 
 
 const MainWindow=()=>{
-    const [state, dispatch] = useContext(Context);
+    const [state] = useContext(Context);
     const [changeGraph, setChangeGraph] = useState(true);
     const zipcodeData = state.zipcodeKey;
     const allData = state.allDemoData;
