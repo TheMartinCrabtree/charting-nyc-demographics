@@ -1,7 +1,7 @@
 ## Charting 2019 NYC Demographic Data - Demo
 This application is an extension of an instructional blog that demonstrates how to use the recharts library for React.js to visualize data. The data used in this demo is from the 2019 NYC Demographic Survey, that is publicly available through the Open Data NYC website. This demo also uses a global state that is wrapped in a React.js context, and updated using a Redux-like reducer.
 
-
+Heroku: https://mc-charting-nyc-demographics.herokuapp.com/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
