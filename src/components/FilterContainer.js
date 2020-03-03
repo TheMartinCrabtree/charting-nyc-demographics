@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useCallback} from 'react';
 import {Context} from '../Store';
 import '../App.css';
 
@@ -13,9 +13,15 @@ const FilterContainer=(props)=>{
     // for populating the list of neighborhoods
     const [neighborhoods, setNeighborhoods] = useState();
 
-    useEffect(()=>{
-        setNeighborhoods(populateNeighborhoods)
+    const popNeighborCallback = useCallback(()=>{
+        setNeighborhoods(populateNeighborhoods);
     }, [])
+
+    useEffect(()=>{
+        if(!neighborhoods){
+            popNeighborCallback();
+        }
+    }, [neighborhoods])
     
     
     // variable for the selected neighborhood to search for
