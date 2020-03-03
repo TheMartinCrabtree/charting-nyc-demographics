@@ -13,6 +13,7 @@ const FilterContainer=(props)=>{
     // for populating the list of neighborhoods
     const [neighborhoods, setNeighborhoods] = useState();
 
+
     const popNeighborCallback = useCallback(()=>{
         setNeighborhoods(populateNeighborhoods);
     }, [])
@@ -21,13 +22,9 @@ const FilterContainer=(props)=>{
         if(!neighborhoods){
             popNeighborCallback();
         }
-    }, [neighborhoods])
-    
-    
-    // variable for the selected neighborhood to search for
-    const neighborSearch = state.selectedNeighborhood;
-    // console.log("Currently Selected Neighborhood: ", neighborSearch);
 
+    
+    
     const populateNeighborhoods=()=>{
         // console.log("hit populate neighborhoods list")
         let neighborArr = [];
