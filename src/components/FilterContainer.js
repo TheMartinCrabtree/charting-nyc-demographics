@@ -1,4 +1,6 @@
+
 import React, {useContext, useState, useEffect, useCallback} from 'react';
+
 import {Context} from '../Store';
 import '../App.css';
 
@@ -21,9 +23,8 @@ const FilterContainer=(props)=>{
     useEffect(()=>{
         if(!neighborhoods){
             popNeighborCallback();
-        }
+        }, [neighborhoods])
 
-    
     
     const populateNeighborhoods=()=>{
         // console.log("hit populate neighborhoods list")
